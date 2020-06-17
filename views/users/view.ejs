@@ -1,0 +1,6 @@
+<%- include('../partials/header') %>
+            <% users.forEach(function(user){ %>
+               <h1 style="margin-top:10%"><%= user.first_name %> <%= user.last_name %></h1>
+               <p><b>Email: </b><%= user.email %></p>
+             <% }); %>
+<%- include('../partials/footer') %>
