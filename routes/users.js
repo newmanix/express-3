@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 //var data = require('../data/test.json');
 
+// show list of users 
 router.get('/', function(req, res, next) {
   var title = "Our Users Page";
   var db = req.db;
@@ -14,7 +15,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-//show an individual user page
+//show an individual user
 router.get('/view/:id', function(req, res, next) {
   var title = "User Page";
   var db = req.db;
@@ -26,6 +27,14 @@ router.get('/view/:id', function(req, res, next) {
           users:docs
       });
   });
+});
+
+//form to add user
+router.get('/add', function(req, res, next) {
+  var title = "Add User";
+      res.render('users/add', {
+          title:title
+      });
 });
 
 module.exports = router;
