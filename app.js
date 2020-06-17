@@ -51,6 +51,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Make our db accessible to routers
+app.use(function(req,res,next){
+ req.db = db;
+ next();
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
