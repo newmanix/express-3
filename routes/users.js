@@ -37,5 +37,39 @@ router.get('/add', function(req, res, next) {
       });
 });
 
+/* insert user */
+router.post('/insert', function(req, res) {
+    // retrieve form values - reliant on name attributes
+    var first_name = req.body.first_name;
+    var last_name = req.body.last_name;
+    var email = req.body.email;
+    //we're generating a random number here, to manage the images
+    var id = Math.floor(Math.random() * 99) + 1;
+    var db = req.db;
+    var collection = db.get('test_collection');
+  
+  collection.insert({
+    "first_name" : first_name,
+     "last_name" : last_name,
+     "email" : email,
+     "id": id
+  })
+  .then((docs) => {
+    // docs contains the documents inserted with added **_id** fields
+    console.log(docs);
+    
+    var title = "New User Added!";
+    //show new user/view page - docs required [] as was not an array
+    res.render('users/view', {
+          title:title,
+          users:[docs]
+      });
+    
+  }).catch((err) => {
+     res.send("ERROR: User not added.");
+  }).then(() => db.close())
+});
+
+
 module.exports = router;
 
