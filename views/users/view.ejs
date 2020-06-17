@@ -1,21 +1,5 @@
 <%- include('../partials/header') %>
 
-<%
- var id  = parseInt(user.id);
- if(user.id % 2 == 0) {
-%>
-   <img style="align:right;" src="https://randomuser.me/api/portraits/men/<%= user.id %>.jpg" />
-<%} else {%>
-   <img style="align:right;" src="https://randomuser.me/api/portraits/women/<%= user.id %>.jpg" />
-<%}%>
-
-
-
-
-
-
-
-
 <% users.forEach(function(user){ %>
 
    <div class="panel panel-default" style="margin-top:10%">
