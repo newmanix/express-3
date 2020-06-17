@@ -1,21 +1,27 @@
    <%- include('../partials/header') %>
-       <div class="jumbotron">
-          <h1 class="display-3">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr class="my-4">
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </p>
-        </div>
+       <h1 style="margin-top:10%">Users</h1>
+ 
+         <table class="table table-hover table-striped">
+            <thead>
+               <tr>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+               </tr>
+            </thead>
+         <tbody>
  
       <% users.forEach(function(user){ %>
-          <p>
-             <b>id:</b> <%= user.id %><br />
-             <b>first_name:</b> <%= user.first_name %><br />
-             <b>last_name:</b> <%= user.last_name %><br />
-             <b>email:</b> <%= user.email %><br />
-          </p>
+
+          <tr>
+               <td><%= user.first_name %></td>
+               <td><%= user.last_name %></td>
+               <td><%= user.email %></td>
+          </tr>
+
         <% }); %>
+  
+        </tbody>
+      </table> 
 
       <%- include('../partials/footer') %>
