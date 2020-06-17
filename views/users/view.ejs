@@ -1,9 +1,35 @@
 <%- include('../partials/header') %>
+
+<%
+ var id  = parseInt(user.id);
+ if(user.id % 2 == 0) {
+%>
+   <img style="align:right;" src="https://randomuser.me/api/portraits/men/<%= user.id %>.jpg" />
+<%} else {%>
+   <img style="align:right;" src="https://randomuser.me/api/portraits/women/<%= user.id %>.jpg" />
+<%}%>
+
+
+
+
+
+
+
+
 <% users.forEach(function(user){ %>
 
    <div class="panel panel-default" style="margin-top:10%">
               <div class="panel-heading"><h3><%= user.first_name %> <%= user.last_name %></h3></div>
-              <div class="panel-body">Here we would put clever stuff like bio info.  
+              <div class="panel-body">
+              <%
+                var id  = parseInt(user.id);
+                if(user.id % 2 == 0) {
+               %>
+                  <img style="align:right;" src="https://randomuser.me/api/portraits/men/<%= user.id %>.jpg" />
+               <%} else {%>
+                  <img style="align:right;" src="https://randomuser.me/api/portraits/women/<%= user.id %>.jpg" />
+               <%}%>
+              Here we would put clever stuff like bio info.  
               Oh, we do have an Email: <b><%= user.email %></b>.</div>
               <div class="panel-footer"><a href="/users">Back</a></div>
    </div>
