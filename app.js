@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 let credentials = require('./credentials');//store mongodb credentials in separate, non-tracked file
 var db_admin = credentials.getCredentials();
-//console.log(db_admin);
+console.log(db_admin);
 
 //monk will be our db connection tool
 var monk = require('monk');
@@ -17,7 +17,7 @@ var db = monk(uri);
 db.then(()=>{
   console.log('Connected to server');
 });
-
+/*
 const collection = db.get('test_collection');
 
 collection.find({}, function(err, docs){
@@ -27,6 +27,7 @@ collection.find({}, function(err, docs){
 	console.log(docs);
     }
 });
+*/
 
 
 var indexRouter = require('./routes/index');
